@@ -18,34 +18,34 @@ def AdjustSize(size, start):
     result= round(start+(size*0.05))
     return result
 
-im= Image.open('BG.PNG')
-imt= Image.open('BGU.PNG')
-imb= Image.open('BGD.PNG')
-imm= Image.open('BGM.PNG')
-logo= Image.open('Logo.PNG')
-footer= Image.open('Footer.PNG')
-headtxt= Image.open('Headtxt.PNG')
-datebg= Image.open('Dateblue.PNG')
-phonebg= Image.open('Phonegray.PNG')
-totalbg= Image.open('Totalblue.PNG')
-rial= Image.open('Rial.PNG')
+im= Image.open('Requirements/BG.PNG')
+imt= Image.open('Requirements/BGU.PNG')
+imb= Image.open('Requirements/BGD.PNG')
+imm= Image.open('Requirements/BGM.PNG')
+logo= Image.open('Requirements/Logo.PNG')
+footer= Image.open('Requirements/Footer.PNG')
+headtxt= Image.open('Requirements/Headtxt.PNG')
+datebg= Image.open('Requirements/Dateblue.PNG')
+phonebg= Image.open('Requirements/Phonegray.PNG')
+totalbg= Image.open('Requirements/Totalblue.PNG')
+rial= Image.open('Requirements/Rial.PNG')
 x, y= im.size
 
 data= pd.read_csv("Price.csv")
 s= data.iloc[1][5]
 if s=="Samsung":
-    phonelogo= Image.open('Samsung logo.PNG')
-    header= Image.open('Header2.PNG')
+    phonelogo= Image.open('Requirements/Samsung logo.PNG')
+    header= Image.open('Requirements/Header2.PNG')
     l=200
     logoloc= (390,10)
 if s=="Huawei":
-    phonelogo= Image.open('Huawei logo.PNG')
-    header= Image.open('Header1.PNG')
+    phonelogo= Image.open('Requirements/Huawei logo.PNG')
+    header= Image.open('Requirements/Header1.PNG')
     l=0
     logoloc= (480,10)
 if s=="Xiaomi":
-    phonelogo= Image.open('Mi logo.PNG')
-    header= Image.open('Header2.PNG')
+    phonelogo= Image.open('Requirements/Mi logo.PNG')
+    header= Image.open('Requirements/Header2.PNG')
     l=200
     logoloc= (480,10)
 row, col= data.shape
@@ -83,19 +83,19 @@ for i in range(row-1):
     for j in range(col):
         s= str(data.iloc[i][j])
         if j==0:
-            font = ImageFont.truetype("arial.ttf", 25, encoding="unic")
+            font = ImageFont.truetype("Requirements/arial.ttf", 25, encoding="unic")
             draw.text(((l/2.5)+90+220*j, loc+20),s,(66,75,142),font=font)
         elif j==1:
-            font = ImageFont.truetype("B-NAZANIN.ttf", 30, encoding="unic")
+            font = ImageFont.truetype("Requirements/B-NAZANIN.ttf", 30, encoding="unic")
             draw.text((l/2.1, loc+20),str(i+1),(66,75,142),font=font)
             draw.text((l+90+220*j, loc+20),s,(66,75,142),font=font)
         elif j==2:
-            font = ImageFont.truetype("B-NAZANIN.ttf", 30, encoding="unic")
+            font = ImageFont.truetype("Requirements/B-NAZANIN.ttf", 30, encoding="unic")
             draw.text(((l/8)+90+265*j, loc+20),s,(66,75,142),font=font)
         elif j==3:
-            font = ImageFont.truetype("B-NAZANIN.ttf", 30, encoding="unic")
+            font = ImageFont.truetype("Requirements/B-NAZANIN.ttf", 30, encoding="unic")
             draw.text((90+258*j, loc+20),s,(66,75,142),font=font)
-    font = ImageFont.truetype("arial.ttf", 17, encoding="unic")
+    font = ImageFont.truetype("Requirements/arial.ttf", 17, encoding="unic")
     color= str(data.iloc[i][8])
     if color=='nan':
         color= str(data.iloc[i][7])
@@ -123,7 +123,7 @@ im3= PasteImage(phonelogo, im3, logoloc)
 s= data.iloc[0][4]
 draw = ImageDraw.Draw(im3)
 # font = ImageFont.truetype(<font-file>, <font-size>)
-font = ImageFont.truetype("B-NAZANIN.ttf", 32, encoding="unic")
+font = ImageFont.truetype("Requirements/B-NAZANIN.ttf", 32, encoding="unic")
 # draw.text((x, y),"Sample Text",(r,g,b))
 draw.text((100, 80),s,(255,255,255),font=font)
 s= str(data.iloc[row-1][1])
