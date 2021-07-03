@@ -52,6 +52,8 @@ row, col= data.shape
 
 #change only y to add more items
 size= (row-4)*67
+if size<0:
+    size=0
 im2= im.resize((x,y+size))
 im3= PasteImage(imt, im2, (0,0))
 x1, y1= imt.size
