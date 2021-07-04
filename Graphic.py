@@ -86,16 +86,16 @@ for i in range(row-1):
         s= str(data.iloc[i][j])
         if j==0:
             font = ImageFont.truetype("Requirements/arial.ttf", 25, encoding="unic")
-            draw.text(((l/2.5)+90+220*j, loc+20),s,(66,75,142),font=font)
+            draw.text(((l/3)+90+220*j, loc+20),s,(66,75,142),font=font)
         elif j==1:
-            font = ImageFont.truetype("Requirements/B-NAZANIN.ttf", 30, encoding="unic")
+            font = ImageFont.truetype("Requirements/Yekan.ttf", 26, encoding="unic")
             draw.text((l/2.1, loc+20),str(i+1),(66,75,142),font=font)
             draw.text((l+90+220*j, loc+20),s,(66,75,142),font=font)
         elif j==2:
-            font = ImageFont.truetype("Requirements/B-NAZANIN.ttf", 30, encoding="unic")
+            font = ImageFont.truetype("Requirements/Yekan.ttf", 26, encoding="unic")
             draw.text(((l/8)+90+265*j, loc+20),s,(66,75,142),font=font)
         elif j==3:
-            font = ImageFont.truetype("Requirements/B-NAZANIN.ttf", 30, encoding="unic")
+            font = ImageFont.truetype("Requirements/Yekan.ttf", 26, encoding="unic")
             draw.text((90+258*j, loc+20),s,(66,75,142),font=font)
     font = ImageFont.truetype("Requirements/arial.ttf", 17, encoding="unic")
     color= str(data.iloc[i][8])
@@ -125,7 +125,7 @@ im3= PasteImage(phonelogo, im3, logoloc)
 s= data.iloc[0][4]
 draw = ImageDraw.Draw(im3)
 # font = ImageFont.truetype(<font-file>, <font-size>)
-font = ImageFont.truetype("Requirements/B-NAZANIN.ttf", 32, encoding="unic")
+font = ImageFont.truetype("Requirements/Yekan.ttf", 24, encoding="unic")
 # draw.text((x, y),"Sample Text",(r,g,b))
 draw.text((100, 80),s,(255,255,255),font=font)
 s= str(data.iloc[row-1][1])
