@@ -36,16 +36,19 @@ s= data.iloc[1][5]
 if s=="Samsung":
     phonelogo= Image.open('Requirements/Samsung logo.PNG')
     header= Image.open('Requirements/Header2.PNG')
+    modelbg= Image.open('Requirements/SamsungBG.PNG')
     l=200
     logoloc= (390,10)
 if s=="Huawei":
     phonelogo= Image.open('Requirements/Huawei logo.PNG')
     header= Image.open('Requirements/Header1.PNG')
+    modelbg= Image.open('Requirements/HuaweiBG.PNG')
     l=0
     logoloc= (480,10)
 if s=="Xiaomi":
     phonelogo= Image.open('Requirements/Mi logo.PNG')
     header= Image.open('Requirements/Header2.PNG')
+    modelbg= Image.open('Requirements/XiaomiBG.PNG')
     l=200
     logoloc= (480,10)
 row, col= data.shape
@@ -55,12 +58,17 @@ size= (row-4)*67
 if size<0:
     size=0
 im2= im.resize((x,y+size))
+modelbg= modelbg.resize((x,y+size))
+im3= Image.blend(im2, modelbg, 0.1)
+#ImageShow.show(im3, title='Test')
 im3= PasteImage(imt, im2, (0,0))
 x1, y1= imt.size
 x2, y2= imm.size
 imm2= imm.resize((x2,y2+size))
 im3= PasteImage(imm2, im3, (0,y1))
 im3= PasteImage(imb, im3, (0,y1+y2-2+size))
+im3= Image.blend(im3, modelbg, 0.1)
+#ImageShow.show(im3, title='Test')
 
 s= data.iloc
 y= round(y/7.7)
@@ -133,7 +141,7 @@ draw.text((l+310,loc+75),s,(255,255,255),font=font,stroke_width=1, stroke_fill=(
 s= str(data.iloc[row-1][3])
 draw.text((835,loc+75),s,(255,255,255),font=font,stroke_width=1, stroke_fill=(66,75,142))
 im3= PasteImage(rial, im3, (710,loc+65))
-
+im3= Image.blend(im3, modelbg, 0.07)
 ImageShow.show(im3, title='Test')
 
 im3.save('Sabad.PNG')
